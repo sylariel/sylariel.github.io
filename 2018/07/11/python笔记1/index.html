@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="盛永莉的技术博客">
 <meta property="og:description" content="2018.7.11 python基础语法编码：在开发，对应不同的语言使用不同的字符编码。英文    ISO-8859-1中文    gbk或gb2312目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码 ###print()函数   语法格式：print(value,…,sep=’ ‘,end=’\n’)   其中:   value代表我们要输出的内容，可以是字符串，可以是数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-15T03:40:04.784Z">
+<meta property="og:updated_time" content="2018-07-15T03:43:33.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python笔记">
 <meta name="twitter:description" content="2018.7.11 python基础语法编码：在开发，对应不同的语言使用不同的字符编码。英文    ISO-8859-1中文    gbk或gb2312目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码 ###print()函数   语法格式：print(value,…,sep=’ ‘,end=’\n’)   其中:   value代表我们要输出的内容，可以是字符串，可以是数">
@@ -187,9 +187,10 @@
 <p>####变量在内存中的存在情况<br>python中的变量，在声明和赋值时，不仅声明了变量的名字同时还为这个变量指向了内存中的地址，该地址用来存储变量的值。<br>python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时，如：<br>i = 10意味着将i指向10所在的内存地址，因此，i = 10 ，j = 10 使用id(i),id(j）他们的id是相同的。<br>因为，他们的值10在内存中的地址时相同的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">b=10</span><br><span class="line"><span class="built_in">print</span>(id(a))<span class="comment">#1955491120</span></span><br><span class="line"><span class="built_in">print</span>(id(b))<span class="comment">#1955491120</span></span><br></pre></td></tr></table></figure></p>
 <p>####变量与内存地址<br>当我们声明一个变量时，对其进行赋值。实际上就是将变量值所在的内存地址，赋值给该变量。也就是说这个变量指向其值所在的内存地址。<br>当我们改变变量的值的时候，说白了就是将变量指向的内存地址进行变化。<br>举例：我们日常购买商品，快递员通过你的邮寄地址将快递送到你本人手里。可以理解为，快递员拥有指向你这个变量的地址,通过地址，将快递商品赋值给你。</p>
 <p>####变量与常量<br>变量：我们认为其内容是临时结果，可变的。供后续的程序代码进行调用。<br>常量：我们认为其内容是不变的，或者在程序运行的过程中也不发生改变。<br>在Python中，我们通过大写变量名，来表明这是一个常量，比如：CARDID = ‘12048377293’</p>
-<p>####变量命名规则<br>首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现<br>1,变量名的首个字符，必须是字母或下划线<br>2,Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。<br>3,Python是严格区分大小写的语言，其中A = 10 ，a = 10。我们认为这是两个不同的变量<br>约定俗称：一般来说符下划线不会放在前后的位置，因为python中已经存在大量的标志符<br><em>变量名不超过三个单词。
-</em>变量名不能用关键字来使用，在python中关键字会变成色<br><em>推荐使用命名法：
-</em>两个词之间用下划线连接:is_regestion:是否已注册<br>*驼峰命名法:isRegestion:是否已注册</p>
+<p>####变量命名规则<br>首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现<br>1,变量名的首个字符，必须是字母或下划线<br>2,Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。<br>3,Python是严格区分大小写的语言，其中A = 10 ，a = 10。我们认为这是两个不同的变量<br>约定俗称：<br><em>一般来说符下划线不会放在前后的位置，因为python中已经存在大量的标志符
+</em>变量名不超过三个单词。<br><em>变量名不能用关键字来使用，在python中关键字会变成色
+</em>推荐使用命名法：<br><em>两个词之间用下划线连接:is_regestion:是否已注册
+</em>驼峰命名法:isRegestion:是否已注册</p>
 
       
 
