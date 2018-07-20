@@ -155,6 +155,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-博客园首页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/20/博客园首页/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-高级特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -273,7 +320,7 @@
 <h2 id="字典对象的生成"><a href="#字典对象的生成" class="headerlink" title="字典对象的生成"></a>字典对象的生成</h2><p>第一种、dic = {1:’one’,2:’two’,3:’three’}，两边使用一对{}来界定。<br>第二种、dic = dict{} 生成一个空字典。<br>第三种、dic = dict({1:’one’,2:’two’,3:’three’})<br>注意：字典中的key是唯一的，如果在生成时命名了多个同名的key，那么实际上字典会使用最后一次命名的key来覆盖前面的同名内容。<br>同时，字典在赋值时，允许其value或key为空。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1)) <span class="comment"># &lt;class 'dict'&gt;</span></span><br><span class="line"><span class="comment"># 第二种</span></span><br><span class="line">d1=&#123;&#125; <span class="comment"># 也可以写成d1=dict()</span></span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;&#125;生成一个空的字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1)) <span class="comment"># &lt;class 'dict'&gt;</span></span><br><span class="line"><span class="comment"># 第三种</span></span><br><span class="line">d1=dict(&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3&#125;)</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1))</span><br><span class="line"><span class="comment"># 注意</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'one'</span>:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 9, 'two': 2, 'three': 3&#125; 字典在赋值时若遇到同名的key，那么最后一次的赋值将覆盖同名的内容，位置为key第一次出现的位置</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, <span class="string">''</span>:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, '': 9&#125;</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, None:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, None: 9&#125; 键为空</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, True:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, True: 9&#125; 键为布尔型</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:<span class="string">''</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': ''&#125;</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:None&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': None&#125; value为空</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:True&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': True&#125; value为布尔型</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="字典的特性"><a href="#字典的特性" class="headerlink" title="字典的特性"></a>字典的特性</h2><p>首先，字典中的元素时根据每对键值对中的key来决定的，通过相应的哈希算法来决定他们对应的value的存储地址，因此字典是无序的。<br>其次，字典中的key，可以是数值、字符串、元组等构成，注意这些内容都是不可改变的。同时，字典中的key都是唯一的。<br>然后，字典中的value需用通过key来获取。</p>
 <h2 id="字典的常用操作"><a href="#字典的常用操作" class="headerlink" title="字典的常用操作"></a>字典的常用操作</h2><h3 id="字典的新增和修改"><a href="#字典的新增和修改" class="headerlink" title="字典的新增和修改"></a>字典的新增和修改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:False&#125;</span><br><span class="line">d1[<span class="string">'five'</span>]=5</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': False, 'five': 5&#125; 如果字典中不存在指定的key，则对该字典实现元素的新增</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:False&#125;</span><br><span class="line">d1[<span class="string">'two'</span>]=10</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 10, 'three': 3, 'four': False&#125; 如果字典中存在指定的key，那么对key对应的value进行修改</span></span><br></pre></td></tr></table></figure>
-<p>###字典的删除<br>第一种，使用del进行字典内容的删除<br>del dic[key]    删除指定可以对应的value内容<br>del dic         删除整个字典，并释放其所占内存<br>第二种，使用pop()函数，删除指定key对应的value内容<br>函数格式：dict.pop(key)  ，其中参数为字典中的key值<br>返回值：返回所删除key对应的value内容<br>第三种，使用clear()函数，清空字典中所有内容<br>函数格式：dict.clear()<br>返回值：清空字典内容，返回一个空字典<br>第四种：popitem()，删除字典中的键值对<br>函数格式：dict.popitem()<br>返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回</p>
+<p>###字典的删除<br>第一种，使用del进行字典内容的删除<br>del dic[key]    删除指定可以对应的value内容<br>del dic         删除整个字典，并释放其所占内存<br>第二种，使用pop()函数，删除指定key对应的value内容<br>函数格式：dict.pop(key)  ，其中参数为字典中的key值<br>返回值：返回所删除key对应的value内容<br>第三种，使用clear()函数，清空字典中所有内容<br>函数格式：dict.clear()<br>返回值：清空字典内容，返回一个空字典<br>第四种：popitem()，删除字典中的键值对<br>函数格式：dict.popitem()<br>返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种：使用Python内置函数del</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">del d1[<span class="string">'小明'</span>]</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125; 删除指定key对应的value内容</span></span><br><span class="line">del d1</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># NameError: name 'd1' is not defined 说明d1已经被删除，并释放了所占的内存空间，所以才会报错</span></span><br><span class="line"><span class="comment"># 第二种：使用pop()函数，只能删除指定key所对应的value内容</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">d1.pop(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125;</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">a=d1.pop(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment"># 69 会返回所要删除key对应的value</span></span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125;</span></span><br><span class="line"><span class="comment"># 第三种：使用clear()函数</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">d1.clear()</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;&#125; 删除字典中所有的内容</span></span><br><span class="line"><span class="comment"># 第四种： popitem()，删除字典中的键值对</span></span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -788,77 +835,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-10T02:47:27.842Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
