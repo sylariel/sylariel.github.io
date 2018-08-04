@@ -155,6 +155,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-文件的输入输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/文件的输入输出/">文件输入输出（IO）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/02/文件的输入输出/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:48:42.676Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a>格式化函数</h2><p>repr()<br>函数格式：repr(Object)<br>返回值：返回一个字符串类型的数据<br>说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s=<span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; s1=repr(s)</span><br><span class="line">&gt;&gt;&gt; s1</span><br><span class="line"><span class="string">"'hello world'"</span></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; a=122</span><br><span class="line">&gt;&gt;&gt; s=repr(a)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line"><span class="string">'122'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>居左、居右、居中函数<br>rjust()/ljust()/center()<br>函数格式：rjust(int) /ljust(int)/center()<br>返回值：无<br>说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s=<span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; s.rjust(4)</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; s.rjust(20)</span><br><span class="line"><span class="string">'         hello world'</span></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; s=<span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; s2=repr(s)</span><br><span class="line">&gt;&gt;&gt; s2.ljust(20)</span><br><span class="line"><span class="string">"'hello world'       "</span></span><br><span class="line">&gt;&gt;&gt; s2.center(20)</span><br><span class="line"><span class="string">"   'hello world'    "</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="文本文件的输入输出"><a href="#文本文件的输入输出" class="headerlink" title="文本文件的输入输出"></a>文本文件的输入输出</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>函数格式：open(file,mode,buffering,encoding)<br>返回值：返回一个文件对象，用来对文件进行操作。<br>说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只有进行写操作，同时进行打开操作时才会新建一个文件</span></span><br><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">file.write(<span class="string">'123456789'</span>) <span class="comment">#存入一行</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h3><h4 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h4><p>函数格式：write(str)<br>返回值：返回所写入文件的字符串中的字符数。<br>说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件时，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。<br>函数格式：writelines(sequence)<br>返回值：无<br>说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#内容和元素必须为字符串</span></span><br><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">file.write(<span class="string">'123456789'</span>) <span class="comment">#存入一行</span></span><br><span class="line">file.write(<span class="string">'hello'</span>)</span><br><span class="line"><span class="comment">#123456789hello</span></span><br><span class="line">file=open(<span class="string">'myfile.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1000):</span><br><span class="line">    file.write(<span class="string">'hello'</span>+str(i))</span><br><span class="line">    <span class="keyword">if</span> i%100==0:</span><br><span class="line">        file.flush() <span class="comment">#强制把缓冲区的内容写到文件中，并刷新缓冲区</span></span><br><span class="line">file.close()</span><br><span class="line">l=<span class="string">''</span><span class="string">'asdfgh</span></span><br><span class="line"><span class="string">sasdfgh</span></span><br><span class="line"><span class="string">asdfdgh</span></span><br><span class="line"><span class="string">asdfgh</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">file.writelines(l) <span class="comment">#存入多行</span></span><br><span class="line"><span class="comment">#123456789hello</span></span><br><span class="line"><span class="comment">#sasdfgh</span></span><br><span class="line"><span class="comment">#asdfdgh</span></span><br><span class="line"><span class="comment">#asdfgh</span></span><br><span class="line">l=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">file.writelines(l) <span class="comment">#onetwothree</span></span><br><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">d=&#123;<span class="string">'one'</span>:<span class="string">'1'</span>,<span class="string">'two'</span>:<span class="string">'2'</span>&#125;</span><br><span class="line">file.writelines(d)  <span class="comment">#onetwo只写入键值</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>函数格式：read([size])<br>返回值：返回按字节逐一读取的数据。<br>说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">a=file.read() <span class="comment">#默认读出文件里的所有内容</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">a=file.read(3)</span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment">#读出3个字节</span></span><br><span class="line">file.close</span><br></pre></td></tr></table></figure></p>
+<p>函数格式：readline()<br>返回值：返回读取的一行字符串<br>说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">a=file.readline() <span class="comment">#读出一行的内容</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">file.close()</span><br><span class="line"></span><br><span class="line">file=open(<span class="string">'aaa.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line"><span class="keyword">while</span> True:</span><br><span class="line">    a=file.readline()</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="keyword">if</span> a==<span class="string">''</span>:</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">file.close()</span><br><span class="line"><span class="comment"># asdc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sdc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sdcsdfghj</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># asdfghj</span></span><br></pre></td></tr></table></figure></p>
+<p>函数格式：readlines()<br>返回值：返回一个包含多个字符串的列表。<br>说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">文件</span></span><br><span class="line"><span class="string">sss</span></span><br><span class="line"><span class="string">ffff</span></span><br><span class="line"><span class="string">ssdeee</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">file=open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">a=file.readlines()</span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment"># ['sss\n', 'ffff\n', 'ssdeee']</span></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure></p>
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><p>函数格式：close()<br>返回值：无<br>说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。<br>(写文件时，是把写入的内容放到buffering中，只有关闭时才会把缓冲区的内容清空放到文件中)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/文件的输入输出/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二进制文件的输入输出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -693,73 +763,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/18/项目练习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-组合数据之字典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/17/组合数据之字典/">组合数据之字典</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/17/组合数据之字典/" class="archive-article-date">
-  	<time datetime="2018-07-17T03:13:10.529Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="字典数据类型"><a href="#字典数据类型" class="headerlink" title="字典数据类型"></a>字典数据类型</h1><h2 id="字典类型的基本概念"><a href="#字典类型的基本概念" class="headerlink" title="字典类型的基本概念"></a>字典类型的基本概念</h2><p>字典数据类型，由key=value结构构成的。也就是说字典类型中的每个元素都是有两部分构成，中间使用：连接。其中，key和value的可以是任意数据类型的内容。</p>
-<h2 id="字典对象的生成"><a href="#字典对象的生成" class="headerlink" title="字典对象的生成"></a>字典对象的生成</h2><p>第一种、dic = {1:’one’,2:’two’,3:’three’}，两边使用一对{}来界定。<br>第二种、dic = dict{} 生成一个空字典。<br>第三种、dic = dict({1:’one’,2:’two’,3:’three’})<br>注意：字典中的key是唯一的，如果在生成时命名了多个同名的key，那么实际上字典会使用最后一次命名的key来覆盖前面的同名内容。<br>同时，字典在赋值时，允许其value或key为空。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1)) <span class="comment"># &lt;class 'dict'&gt;</span></span><br><span class="line"><span class="comment"># 第二种</span></span><br><span class="line">d1=&#123;&#125; <span class="comment"># 也可以写成d1=dict()</span></span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;&#125;生成一个空的字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1)) <span class="comment"># &lt;class 'dict'&gt;</span></span><br><span class="line"><span class="comment"># 第三种</span></span><br><span class="line">d1=dict(&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3&#125;)</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(d1))</span><br><span class="line"><span class="comment"># 注意</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'one'</span>:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 9, 'two': 2, 'three': 3&#125; 字典在赋值时若遇到同名的key，那么最后一次的赋值将覆盖同名的内容，位置为key第一次出现的位置</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, <span class="string">''</span>:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, '': 9&#125;</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, None:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, None: 9&#125; 键为空</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3, True:9&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, True: 9&#125; 键为布尔型</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:<span class="string">''</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': ''&#125;</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:None&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': None&#125; value为空</span></span><br><span class="line"></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:True&#125;</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': True&#125; value为布尔型</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="字典的特性"><a href="#字典的特性" class="headerlink" title="字典的特性"></a>字典的特性</h2><p>首先，字典中的元素时根据每对键值对中的key来决定的，通过相应的哈希算法来决定他们对应的value的存储地址，因此字典是无序的。<br>其次，字典中的key，可以是数值、字符串、元组等构成，注意这些内容都是不可改变的。同时，字典中的key都是唯一的。<br>然后，字典中的value需用通过key来获取。</p>
-<h2 id="字典的常用操作"><a href="#字典的常用操作" class="headerlink" title="字典的常用操作"></a>字典的常用操作</h2><h3 id="字典的新增和修改"><a href="#字典的新增和修改" class="headerlink" title="字典的新增和修改"></a>字典的新增和修改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:False&#125;</span><br><span class="line">d1[<span class="string">'five'</span>]=5</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 2, 'three': 3, 'four': False, 'five': 5&#125; 如果字典中不存在指定的key，则对该字典实现元素的新增</span></span><br><span class="line">d1=&#123;<span class="string">'one'</span>:1,<span class="string">'two'</span>:2,<span class="string">'three'</span>:3,<span class="string">'four'</span>:False&#125;</span><br><span class="line">d1[<span class="string">'two'</span>]=10</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'one': 1, 'two': 10, 'three': 3, 'four': False&#125; 如果字典中存在指定的key，那么对key对应的value进行修改</span></span><br></pre></td></tr></table></figure>
-<p>###字典的删除<br>第一种，使用del进行字典内容的删除<br>del dic[key]    删除指定可以对应的value内容<br>del dic         删除整个字典，并释放其所占内存<br>第二种，使用pop()函数，删除指定key对应的value内容<br>函数格式：dict.pop(key)  ，其中参数为字典中的key值<br>返回值：返回所删除key对应的value内容<br>第三种，使用clear()函数，清空字典中所有内容<br>函数格式：dict.clear()<br>返回值：清空字典内容，返回一个空字典<br>第四种：popitem()，删除字典中的键值对<br>函数格式：dict.popitem()<br>返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种：使用Python内置函数del</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">del d1[<span class="string">'小明'</span>]</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125; 删除指定key对应的value内容</span></span><br><span class="line">del d1</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># NameError: name 'd1' is not defined 说明d1已经被删除，并释放了所占的内存空间，所以才会报错</span></span><br><span class="line"><span class="comment"># 第二种：使用pop()函数，只能删除指定key所对应的value内容</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">d1.pop(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125;</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">a=d1.pop(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment"># 69 会返回所要删除key对应的value</span></span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;'李明': 89, '刘琳': 90&#125;</span></span><br><span class="line"><span class="comment"># 第三种：使用clear()函数</span></span><br><span class="line">d1=&#123;<span class="string">'李明'</span>:89,<span class="string">'刘琳'</span>:90,<span class="string">'小明'</span>:69&#125;</span><br><span class="line">d1.clear()</span><br><span class="line"><span class="built_in">print</span>(d1) <span class="comment"># &#123;&#125; 删除字典中所有的内容</span></span><br><span class="line"><span class="comment"># 第四种： popitem()，删除字典中的键值对</span></span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/17/组合数据之字典/">展开全文 >></a>
         </p>
       
 
